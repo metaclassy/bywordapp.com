@@ -1,0 +1,55 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="selection:bg-secondary selection:text-secondary">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<meta name="author" content="Metaclassy, Lda." />
+		<meta name="copyright" content="Copyright &copy; 2010-2023 Metaclassy, Lda." />
+		<meta name="keywords" content="mac ios text editor writing app markdown multimarkdown blogging blog" />
+		<meta name="description" content="Byword is simple and efficient text editor for Markdown." />
+
+		<title>{title}</title>
+
+		<meta name="apple-itunes-app" content="app-id=482063361, affiliate-data=at=11lGB8" />
+    
+		<meta name="twitter:card" content="app" />
+		<meta name="twitter:site" content="@bywordapp" />
+		<meta name="twitter:description" content="Markdown text editor for Mac, iPhone and iPad." />
+		<meta name="twitter:app:country" content="US" />
+		<meta name="twitter:app:name:iphone" content="Byword" />
+		<meta name="twitter:app:id:iphone" content="482063361" />
+		<meta name="twitter:app:url:iphone" content="byword://" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: #F6F6F6;
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>
